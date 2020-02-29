@@ -1,9 +1,17 @@
 {
+<<<<<<< HEAD
   "name": "crudexpress",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
+=======
+  "name": "gerenclientes",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+>>>>>>> problema na rota edit
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -13,7 +21,11 @@
     "express": "~4.16.1",
     "express-flash": "0.0.2",
     "express-session": "^1.17.0",
+<<<<<<< HEAD
     "express-validator": "~5.3.1",
+=======
+    "express-validator": "^5.3.1",
+>>>>>>> problema na rota edit
     "http-errors": "~1.6.3",
     "method-override": "^3.0.0",
     "morgan": "~1.9.1",

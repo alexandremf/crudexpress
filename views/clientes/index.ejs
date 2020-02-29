@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">GERENCLIENTES</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/clientes">Listar Clientes <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/clientes/add">Adicionar Cliente</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container mt-5 mb-5">
+        <% if (messages.error) { %>
+            <div class="alert alert-danger mt-2 mb-2" role="alert"><%- messages.error %></div>
+        <% } %>
+            
+        <% if (messages.success) { %>
+            <div class="alert alert-danger mt-2 mb-2" role="alert"><%- messages.success %></div>
+        <% } %>
+      </div>
+
+
+    <div class="container-fluid" style="margin-top: 60px;">
+        <div class="row">
+            <div class="col-md-12">
+                
+
+
+                <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome do Cliente</th>
+                        <th scope="col">Contato</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Logradouro</th>
+                        <th scope="col">Serviço Prestado</th>
+                        <th scope="col">Açoẽs</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                    <% if(data.length){
+                      for(var i=0; i<data.length; i++) { %>
+                      <tr>
+                        <th scope="row"><%= data[i].idcliente %></th>
+                        <td><%= data[i].nome_cliente %></td>
+                        <td><%= data[i].contato_cliente %></td>
+                        <td><%= data[i].email_cliente %></td>
+                        <td><%= data[i].logradouro_cliente %></td>
+                        <td><%= data[i].servicoprestado_cliente %></td>
+                        <td><a class="btn btn-info" href="../clientes/edit/<% data[i].idcliente %>" role="button">Editar</a></td>
+                        <td><a class="btn btn-danger" href="../clientes/edit/<% data[i].idcliente %>" onclick="return alert('Tem certeza da exclusão?')" role="button">Excluir</a></td>
+                      </tr>  <% } 
+                    } else { %>
+                      <tr>
+                        <td>Nenhum cliente cadastrado</td>
+                      </tr>
+                    <% } %>
+              
+                    </tbody>
+                  </table>
+
+
+            </div>
+        </div>
+    </div>
+
+<script src="/javascripts/jquery-3.4.1.slim.min.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>   
+<script src="/javascripts/popper.min.js"></script>    
+</body>
+</html>
